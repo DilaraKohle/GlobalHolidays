@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Ana Sayfa</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link rel="icon" type="image/png" th:href="@{/images/favicon.png}" sizes="16x16" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="description" content="Ülkelerin resmi tatillerini gösteren web sitesi">
+    <meta name="keywords" content="ülkelerin tatilleri">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+<div class="container">
+    <h1>Ülkelerin Resmi Tatilleri</h1>
+
+    <!--Arama bölümü-->
+    <div id="searchContainer">
+        <i class="fa fa-search" id="searchIcon"></i>
+        <input type="text" id="searchInput" placeholder="Ülke ara..." onkeyup="searchCountries()" />
+    </div>
+
+    <!--Öneri bölümü-->
+    <div id="suggestionsContainer">
+        <ul id="suggestionsList"></ul>
+    </div>
+
+    <!--Tatil bilgi bölümü-->
+    <div id="holidayInfoContainer">
+        <h1>Resmi Tatiller</h1>
+        <p>
+            Resmi Tatiller, dünya çapında büyük kültürel ve tarihi öneme sahiptir. Bu değerli günler toplumları bir araya getirerek gelenekleri kutlamamıza, önemli olayları onurlandırmamıza ve günlük rutinlerimizden uzaklaşarak yenilenmemize olanak tanır. Her ülkenin kendine özgü resmi tatilleri ve festivalleri olsa da, hepsinin ortak bir amacı vardır: birliği teşvik etmek, mirası korumak ve vatandaşlar arasında aidiyet duygusunu geliştirmek.
+        </p>
+        <p>
+            Resmi tatiller, tarih boyunca toplulukların kültürel kimliklerini güçlendiren ve önemli anları kutlayan özel günlerdir. Bu tatiller, sadece dinî ve kültürel bir ifade değil, aynı zamanda sosyal dayanışmayı artıran bir fırsattır. Ülkeler, bu tatilleri toplumsal bağları kuvvetlendirmek ve insanların birlikte vakit geçirmelerini sağlamak amacıyla kullanırlar.
+        </p>
+    </div>
+
+    <!--Ülke bilgi bölümü-->
+    <div id="countryInfoContainer">
+         <h1>Ülkelerin Listesi</h1>
+         <p>Bu liste, dünya genelindeki ülkenin resmi tatillerini kapsamaktadır. İlgilendiğiniz ülkenin tatil bilgilerini öğrenmek için üzerine tıklayabilirsiniz.</p>
+    </div>
+
+    <!--Ülkeler listesi-->
+    <div id="countryListContainer">
+        <ul id="countryList">
+            <li th:each="country : ${countries}">
+                <a th:href="@{/countries/{code}(code=${country.code})}" th:text="${country.countryName}"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script th:src="@{/js/search.js}" defter></script>
+
+</body>
+</html>

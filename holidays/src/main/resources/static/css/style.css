@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/*Sayfa başlıkları*/
+h1 {
+    font-size: 30px;
+    margin: 20px;
+    color: #202524;
+    text-align:left;
+}
+/*Paragraf*/
+p {
+    color: #333;
+    line-height:1.2;
+    text-align: justify;
+}
+
+/*Sayfa düzeni*/
+div.container {
+    max-width: 1200px;
+    margin: 40px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+/*Arama konteynerı*/
+#searchContainer {
+    margin-top: 30px;
+    position: relative;
+}
+
+#searchIcon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none; /* tıklamayı engeller */
+}
+
+/*Arama kutusu*/
+#searchInput {
+    padding: 10px;
+    height: 20px;
+    width: 1150px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px 10px 10px 35px;
+}
+/*Öneri konteynerı*/
+#suggestionsContainer {
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    position: absolute;
+    width: 1200px;
+    max-height: 110px;
+    overflow-y: auto;
+}
+
+#suggestionsList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#suggestionsList li {
+    color: #495057;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#suggestionsList li a {
+    color: #495057;
+    text-decoration: none;
+}
+
+#suggestionsList li a:hover {
+    color: #73828C;
+}
+/*Tatiller bilgisi konteynerı*/
+#holidayInfoContainer {
+    margin-top: 120px;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+}
+/*Ülke bilgisi konteynerı*/
+#countryInfoContainer {
+    margin-top: 70px;
+}
+/*Ülkeler listesi konteynerı*/
+#countryListContainer {
+    margin-top: 80px;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+/*Ülkeler listesi*/
+#countryList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#countryList li {
+    width: 32%;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#countryList li a {
+    text-decoration: none;
+    color: #495057;
+}
+
+#countryList li a:hover {
+    color: #73828C;
+}
+
+/* Yıl butonları */
+#yearButtons {
+    text-align: center;
+    margin-top: 120px
+}
+
+#yearButtons button {
+    background-color: #ff0000d1;
+    color: white;
+    border: none;
+    margin: 5px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#yearButtons button:hover {
+    background-color: #dd0e0ed1;
+}
+
+
+/*Genel tatiller*/
+#nationalHolidaysTitle h2 {
+    font-size: 30px;
+    color: #202524;;
+    margin: 0;
+    text-align: left;
+    margin-top: 30px;
+}
+
+#nationalHolidaysTitle h3 {
+    font-size: 22px;
+    color: #444;
+    text-align: left
+}
+
+/*Tatil tabloları*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+}
+
+table th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+#nationalHolidays, #regionalHolidays {
+    margin-top: 30px;
+}
+
+/*Bölhesel tatiler*/
+#regionalHolidaysSection h3 {
+    font-size: 22px;
+    color: #444;
+    text-align: left
+}
+
+/*Mobil ve tablet uyumu*/
+@media (max-width: 768px) {
+    #searchContainer, #searchInput {
+        width: 100%;
+    }
+    #suggestionsContainer, #suggestionsList, #suggestionsList li{
+       width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    #suggestionsContainer, #suggestionsList, #suggestionsList li{
+       width: 70%;
+    }
+}
