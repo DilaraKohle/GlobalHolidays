@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="${countryName + ' - Resmi Tatilleri'}">Tatilleri</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link rel="icon" type="image/png" th:href="@{/images/favicon.png}" sizes="16x16" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ülkelerin resmi tatillerini gösteren web sitesi">
+    <meta name="keywords" content="ülkelerin tatilleri">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+<div class="container">
+     <h1>Ülkelerin Resmi Tatilleri</h1>
+
+     <!--Arama bölümü-->
+    <div id="searchContainer">
+        <i class="fa fa-search" id="searchIcon"></i>
+        <input type="text" id="searchInput" placeholder="Ülke ara..." onkeyup="searchCountries()" />
+    </div>
+
+    <!--Öneri bölümü-->
+    <div id="suggestionsContainer">
+        <ul id="suggestionsList"></ul>
+    </div>
+
+    <!--Bayraklar bölümü-->
+    <div id="flagContainer">
+       <img th:src="@{'/images/flag/' + ${country.code} +'.png'}" th:alt="${countryName}">
+    </div>
+
+    <!--Yıl butonları-->
+    <div id="yearButtons">
+        <h1 th:text="${countryName} + ' Yıllara Göre Tatiller'"></h1>
+        <div id="buttons">
+            <button onclick="fetchHolidays(2024)">2024</button>
+            <button onclick="fetchHolidays(2025)">2025</button>
+            <button onclick="fetchHolidays(2026)">2026</button>
+            <button onclick="fetchHolidays(2027)">2027</button>
+            <button onclick="fetchHolidays(2028)">2028</button>
+            <button onclick="fetchHolidays(2029)">2029</button>
+            <button onclick="fetchHolidays(2030)">2030</button>
+        </div>
+    </div>
+
+    <!--Genel tatiller başlık ve yıllar-->
+    <div id="nationalHolidaysTitle">
+        <h2 id="yearText">2025</h2>
+        <h3>Genel Tatiller</h3>
+    </div>
+
+     <!--Tablo bölümü-->
+    <div id="TabloContainer">
+    <table>
+        <thead>
+        <tr>
+            <th>Tarih</th>
+            <th>Gün</th>
+            <th>Tatil</th>
+            <th>Gün Sayısı</th>
+            <th>Tür</th>
+            <th>Sektör</th>
+        </tr>
+        </thead>
+        <tbody id="nationalHolidaysTableBody">
+        <!--JS ile gelecek-->
+        </tbody>
+    </table>
+   </div>
+
+    <!--Bölgesel tatiller-->
+    <div id="regionalHolidaysSection">
+        <!--JS ile gelecek-->
+    </div>
+
+     <!--Kaç gün tatil olduğunu hesaplama-->
+     <div id="workingDaysSection">
+         <h3>Çalışma Günü Hesaplama</h3>
+         <form id="workingDaysForm">
+             <label for="startDate">Başlangıç Tarihi:</label>
+             <input type="date" id="startDate" name="startDate" required>
+
+             <label for="endDate">Bitiş Tarihi:</label>
+             <input type="date" id="endDate" name="endDate" required>
+
+             <label for="sectorName">Sektör (İsteğe bağlı):</label>
+             <input type="text" id="sectorName" name="sectorName" placeholder="Örn: Kamu">
+
+             <button type="submit">Hesapla</button>
+         </form>
+
+         <div id="workingDaysResult"></div>
+     </div>
+</div>
+
+<footer>
+    <div id="footer">
+        <p>© 2025 Uygulamanın tüm bilgileri saklıdır</p>
+    </div>
+</footer>
+
+<script th:inline="javascript">
+    window.countryName = [[${countryName}]];
+</script>
+
+<script th:src="@{/js/search.js}"></script>
+<script th:src="@{/js/holidays.js}"></script>
+<script th:src="@{/js/working-days.js}"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetchHolidays(2025);
+    });
+</script>
+
+</body>
+</html>

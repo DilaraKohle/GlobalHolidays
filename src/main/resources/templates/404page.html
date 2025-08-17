@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link rel="icon" type="image/png" th:href="@{/images/favicon.png}" sizes="16x16" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Ülkelerin resmi tatillerini gösteren web sitesi">
+    <meta name="keywords" content="ülkelerin tatilleri">
+</head>
+<body>
+
+<div id="errorContainer">
+    <div id="errorBox">
+        <h1 id="error-title" th:text="${message}">Ülke bulunamadı.</h1>
+        <p id="error-desc">Ana sayfaya dönmek için butona tıklayın.</p>
+        <a id="home-btn" th:href="@{/}">Ana sayfaya Dön</a>
+    </div>
+</div>
+
+</body>
+</html>
